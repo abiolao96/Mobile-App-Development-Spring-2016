@@ -1,0 +1,61 @@
+class User{
+    var name : String
+    var age : Int
+    
+    init (name : String , age : Int){
+        self.name = name
+        self.age = age
+    }
+}
+
+var myArray = [User]()
+
+myArray.append ( User ( name : "Ace Spade", age : 100))
+myArray.append ( User ( name : "Abiola Oke", age : 18))
+myArray.append ( User ( name : "Eko Aloiba", age : 21))
+myArray.append ( User ( name : "Gbolahan Oke jr.", age : 19))
+myArray.append ( User ( name : "biola", age : 12))
+
+func findOldest ( arr : [User] )-> String {
+    var oldest : String = ""
+    var num : Int = 0 
+    
+    for var i = 0; i < 5; i = i+1 {
+        if arr[i].age > num{
+            oldest = arr[i].name
+            num = arr[i].age
+        }
+        
+    }
+    
+    return "the oldest user is \(oldest)"    
+}
+
+func findYoungest ( arr : [User])-> String {
+    var youngest : String = arr[0].name
+    var num : Int = arr[0].age
+    
+    for var i = 0; i < 5; i = i+1 {
+       if arr[i].age < num{
+            youngest = arr[i].name
+        }
+        
+    }
+    
+    return "the youngest user is \(youngest)"
+    
+    
+}
+
+func findAdverage ( arr : [User])-> String {
+    var num : Int = 0
+    for var i = 0; i < 5; i = i+1 {
+        num = num + arr[i].age
+    }
+     num = num / 5
+     return "the adverage age of users is \(num)"
+}
+
+print (findOldest(myArray))
+print (findYoungest(myArray))
+print (findAdverage(myArray))
